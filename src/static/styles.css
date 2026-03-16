@@ -176,6 +176,11 @@ footer {
   flex: 1;
 }
 
+.participant-email {
+  font-weight: 500;
+  color: #333;
+}
+
 .delete-participant {
   background-color: #ff4444;
   color: white;
