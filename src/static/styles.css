@@ -154,34 +154,66 @@ footer {
 /* Participant info header styles */
 #participant-info h5 {
   color: #1a237e;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
   font-size: 14px;
   text-transform: uppercase;
   letter-spacing: 0.5px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+#participant-info h5::before {
+  content: "👥";
+  font-size: 18px;
 }
 
 .participants-list {
   list-style-type: none;
   padding: 0;
   margin: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 8px;
 }
 
 .participants-list li {
-  padding: 8px 0;
+  padding: 12px 14px;
   font-size: 14px;
-  color: #555;
+  color: #333;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  background-color: #f0f4ff;
+  border-radius: 6px;
+  border-left: 3px solid #0066cc;
+  transition: all 0.3s ease;
+}
+
+.participants-list li:hover {
+  background-color: #e8f0ff;
+  box-shadow: 0 2px 8px rgba(0, 102, 204, 0.15);
+  transform: translateX(4px);
 }
 
 .participants-list span {
   flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.participants-list span::before {
+  content: "✓";
+  color: #2e7d32;
+  font-weight: bold;
+  font-size: 16px;
 }
 
 .participant-email {
   font-weight: 500;
-  color: #333;
+  color: #0066cc;
+  word-break: break-word;
 }
 
 /* Participant info styling for activity cards */
@@ -198,9 +230,9 @@ footer {
   color: white;
   border: none;
   border-radius: 50%;
-  width: 24px;
-  height: 24px;
-  min-width: 24px;
+  width: 28px;
+  height: 28px;
+  min-width: 28px;
   padding: 0;
   font-size: 16px;
   font-weight: bold;
@@ -208,12 +240,20 @@ footer {
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: background-color 0.2s;
-  margin-left: 10px;
+  transition: all 0.3s ease;
+  margin-left: 12px;
+  flex-shrink: 0;
+  box-shadow: 0 2px 4px rgba(255, 68, 68, 0.3);
 }
 
 .delete-participant:hover {
   background-color: #cc0000;
+  transform: scale(1.1);
+  box-shadow: 0 4px 8px rgba(255, 68, 68, 0.4);
+}
+
+.delete-participant:active {
+  transform: scale(0.95);
 }
 
 .participants-list li em {
