@@ -144,12 +144,14 @@ footer {
 }
 
 /* Participant info styling for activity cards */
+/* This section handles the participant info display */
 #participant-info {
   margin-top: 15px;
   padding-top: 15px;
   border-top: 2px solid #e0e0e0;
 }
 
+/* Participant info header styles */
 #participant-info h5 {
   color: #1a237e;
   margin-bottom: 10px;
