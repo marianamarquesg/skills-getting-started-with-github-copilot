@@ -19,8 +19,9 @@ document.addEventListener("DOMContentLoaded", () => {
         activityCard.className = "activity-card";
 
         const spotsLeft = details.max_participants - details.participants.length;
+        // Display participant info in activity cards
         const participantsList = details.participants.length > 0
-          ? details.participants.map(p => `<li data-participant-info="${p}"><span class="participant-email">${p}</span><button class="delete-participant" data-activity="${name}" data-email="${p}" aria-label="Remove ${p}">✕</button></li>`).join('')
+          ? details.participants.map(p => `<li data-participant-info="${p}" class="participant-info"><span class="participant-email">${p}</span><button class="delete-participant" data-activity="${name}" data-email="${p}" aria-label="Remove ${p}">✕</button></li>`).join('')
           : '<li><em>No participants yet</em></li>';
 
         activityCard.innerHTML = `

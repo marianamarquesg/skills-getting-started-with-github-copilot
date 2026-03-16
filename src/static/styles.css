@@ -181,6 +181,11 @@ footer {
   color: #333;
 }
 
+/* Participant info styling for activity cards */
+.participant-info {
+  list-style: none;
+}
+
 [data-participant-info] {
   /* Participant info element styling */
 }
