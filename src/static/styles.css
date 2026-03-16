@@ -1,220 +1,394 @@
+/* ===================================
+   CSS Variables & Color Scheme
+   =================================== */
+:root {
+  --primary-color: #1a237e;
+  --secondary-color: #0066cc;
+  --accent-color: #ff4444;
+  --success-color: #2e7d32;
+  --warning-color: #c62828;
+  --bg-light: #f5f5f5;
+  --bg-white: #ffffff;
+  --border-color: #ddd;
+  --text-primary: #333;
+  --text-secondary: #555;
+  --text-light: #999;
+  --transition-speed: 0.3s;
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.15);
+  --shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* ===================================
+   Global Styles
+   =================================== */
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: Arial, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
 }
 
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   line-height: 1.6;
-  color: #333;
+  color: var(--text-primary);
   max-width: 1200px;
   margin: 0 auto;
   padding: 20px;
-  background-color: #f5f5f5;
+  background-color: var(--bg-light);
+  background: linear-gradient(135deg, #f5f5f5 0%, #e8f0ff 100%);
 }
 
+/* ===================================
+   Header & Navigation
+   =================================== */
 header {
   text-align: center;
-  padding: 20px 0;
-  margin-bottom: 30px;
-  background-color: #1a237e;
+  padding: 30px 20px;
+  margin-bottom: 40px;
+  background: linear-gradient(135deg, var(--primary-color) 0%, #283593 100%);
   color: white;
-  border-radius: 5px;
+  border-radius: 10px;
+  box-shadow: var(--shadow-lg);
+  animation: slideDown 0.6s ease-out;
 }
 
-header h1 {
-  margin-bottom: 10px;
-}
-
-main {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 30px;
-  justify-content: center;
-}
-
-@media (min-width: 768px) {
-  main {
-    grid-template-columns: 2fr 1fr;
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
+header h1 {
+  margin-bottom: 8px;
+  font-size: 2.5rem;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+header h2 {
+  font-size: 1.2rem;
+  font-weight: 300;
+  opacity: 0.95;
+}
+
+/* ===================================
+   Layout
+   =================================== */
+main {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  margin-bottom: 40px;
+  animation: fadeIn 0.8s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Responsividade melhorada */
+@media (max-width: 900px) {
+  main {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
+
+/* ===================================
+   Sections & Cards
+   =================================== */
 section {
-  background-color: white;
-  padding: 20px;
-  border-radius: 5px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  background-color: var(--bg-white);
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: var(--shadow-md);
   width: 100%;
-  max-width: 500px;
+  transition: all var(--transition-speed) ease;
+}
+
+section:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-2px);
 }
 
 section h3 {
-  margin-bottom: 20px;
-  padding-bottom: 10px;
-  border-bottom: 1px solid #ddd;
-  color: #1a237e;
+  margin-bottom: 25px;
+  padding-bottom: 15px;
+  border-bottom: 2px solid var(--secondary-color);
+  color: var(--primary-color);
+  font-size: 1.4rem;
+  font-weight: 600;
 }
 
 .activity-card {
-  margin-bottom: 15px;
-  padding: 15px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  background-color: #f9f9f9;
+  margin-bottom: 18px;
+  padding: 18px;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  background: linear-gradient(135deg, #fafbfc 0%, var(--bg-white) 100%);
+  transition: all var(--transition-speed) ease;
+  border-left: 4px solid transparent;
+}
+
+.activity-card:hover {
+  border-left-color: var(--secondary-color);
+  box-shadow: var(--shadow-md);
+  transform: translateX(4px);
 }
 
 .activity-card h4 {
-  margin-bottom: 10px;
-  color: #0066cc;
+  margin-bottom: 12px;
+  color: var(--secondary-color);
+  font-size: 1.2rem;
+  font-weight: 600;
 }
 
 .activity-card p {
-  margin-bottom: 8px;
+  margin-bottom: 10px;
+  color: var(--text-secondary);
+  line-height: 1.5;
 }
 
+/* ===================================
+   Forms & Inputs
+   =================================== */
 .form-group {
-  margin-bottom: 15px;
+  margin-bottom: 20px;
 }
 
 .form-group label {
   display: block;
-  margin-bottom: 5px;
-  font-weight: bold;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: var(--text-primary);
+  font-size: 0.9rem;
+  letter-spacing: 0.3px;
 }
 
 .form-group input,
 .form-group select {
   width: 100%;
-  padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
+  padding: 12px 14px;
+  border: 2px solid var(--border-color);
+  border-radius: 6px;
   font-size: 16px;
+  font-family: inherit;
+  transition: all var(--transition-speed) ease;
+  background-color: var(--bg-white);
 }
 
+.form-group input:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: var(--secondary-color);
+  box-shadow: 0 0 0 3px rgba(0, 102, 204, 0.1);
+  transform: translateY(-2px);
+}
+
+.form-group input::placeholder {
+  color: var(--text-light);
+}
+
+/* ===================================
+   Buttons
+   =================================== */
 button {
-  background-color: #1a237e;
+  background: linear-gradient(135deg, var(--primary-color) 0%, #283593 100%);
   color: white;
   border: none;
-  padding: 10px 15px;
-  font-size: 16px;
-  border-radius: 5px;
+  padding: 12px 24px;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 6px;
   cursor: pointer;
-  transition: background-color 0.2s;
+  transition: all var(--transition-speed) ease;
+  box-shadow: var(--shadow-sm);
+  letter-spacing: 0.5px;
+  width: 100%;
 }
 
 button:hover {
-  background-color: #3949ab;
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
 }
 
+button:active {
+  transform: translateY(0);
+  box-shadow: var(--shadow-sm);
+}
+
+button:focus {
+  outline: 2px solid var(--secondary-color);
+  outline-offset: 2px;
+}
+
+/* ===================================
+   Messages & Notifications
+   =================================== */
 .message {
   margin-top: 20px;
-  padding: 10px;
-  border-radius: 4px;
+  padding: 14px 16px;
+  border-radius: 6px;
+  border-left: 4px solid;
+  animation: slideUp 0.4s ease-out;
+  font-weight: 500;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .success {
   background-color: #e8f5e9;
-  color: #2e7d32;
-  border: 1px solid #a5d6a7;
+  color: var(--success-color);
+  border-left-color: var(--success-color);
+  box-shadow: 0 2px 4px rgba(46, 125, 50, 0.1);
 }
 
 .error {
   background-color: #ffebee;
-  color: #c62828;
-  border: 1px solid #ef9a9a;
+  color: var(--warning-color);
+  border-left-color: var(--warning-color);
+  box-shadow: 0 2px 4px rgba(198, 40, 40, 0.1);
 }
 
 .info {
-  background-color: #d1ecf1;
-  color: #0c5460;
-  border: 1px solid #bee5eb;
+  background-color: #e1f5fe;
+  color: #0277bd;
+  border-left-color: #0277bd;
+  box-shadow: 0 2px 4px rgba(2, 119, 189, 0.1);
 }
 
 .hidden {
-  display: none;
+  display: none !important;
 }
 
+/* ===================================
+   Footer
+   =================================== */
 footer {
   text-align: center;
-  margin-top: 30px;
-  padding: 20px;
-  color: #666;
+  margin-top: 50px;
+  padding: 30px 20px;
+  color: var(--text-secondary);
+  border-top: 2px solid var(--border-color);
+  background-color: rgba(0, 0, 0, 0.02);
+  border-radius: 8px;
+  font-size: 0.9rem;
 }
 
-/* Participant info styling for activity cards */
-/* This section handles the participant info display */
-/* Display participant info section with styling */
+/* ===================================
+   Participant Info Section
+   =================================== */
 #participant-info {
-  margin-top: 15px;
-  padding-top: 15px;
+  margin-top: 20px;
+  padding: 16px 0;
   border-top: 2px solid #e0e0e0;
+  border-radius: 4px;
+  animation: fadeIn 0.5s ease-out;
 }
 
-/* Participant info header styles */
 #participant-info h5 {
-  color: #1a237e;
-  margin-bottom: 15px;
-  font-size: 14px;
+  color: var(--primary-color);
+  margin-bottom: 16px;
+  font-size: 0.85rem;
   text-transform: uppercase;
-  letter-spacing: 0.5px;
+  letter-spacing: 1px;
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
+  font-weight: 700;
 }
 
 #participant-info h5::before {
   content: "👥";
-  font-size: 18px;
+  font-size: 20px;
+  display: inline-block;
 }
 
+/* ===================================
+   Participants List
+   =================================== */
 .participants-list {
   list-style-type: none;
   padding: 0;
   margin: 0;
   display: grid;
   grid-template-columns: 1fr;
-  gap: 8px;
+  gap: 10px;
 }
 
 .participants-list li {
-  padding: 12px 14px;
-  font-size: 14px;
-  color: #333;
+  padding: 14px 16px;
+  font-size: 0.95rem;
+  color: var(--text-primary);
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #f0f4ff;
-  border-radius: 6px;
-  border-left: 3px solid #0066cc;
-  transition: all 0.3s ease;
+  background: linear-gradient(135deg, #f0f4ff 0%, #e8f0ff 100%);
+  border-radius: 7px;
+  border-left: 4px solid var(--secondary-color);
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-speed) cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 .participants-list li:hover {
-  background-color: #e8f0ff;
-  box-shadow: 0 2px 8px rgba(0, 102, 204, 0.15);
-  transform: translateX(4px);
+  background: linear-gradient(135deg, #e8f0ff 0%, #dfe8ff 100%);
+  box-shadow: var(--shadow-md);
+  transform: translateX(6px);
+  border-left-color: #00d4ff;
+}
+
+.participants-list li:active {
+  transform: translateX(3px);
 }
 
 .participants-list span {
   flex: 1;
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
 }
 
 .participants-list span::before {
   content: "✓";
-  color: #2e7d32;
+  color: var(--success-color);
   font-weight: bold;
-  font-size: 16px;
+  font-size: 18px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 24px;
 }
 
 .participant-email {
-  font-weight: 500;
-  color: #0066cc;
+  font-weight: 600;
+  color: var(--secondary-color);
   word-break: break-word;
+  font-size: 0.95rem;
 }
 
 /* Participant info styling for activity cards */
@@ -234,13 +408,13 @@ footer {
 }
 
 .delete-participant {
-  background-color: #ff4444;
+  background: linear-gradient(135deg, #ff4444 0%, #cc0000 100%);
   color: white;
   border: none;
   border-radius: 50%;
-  width: 28px;
-  height: 28px;
-  min-width: 28px;
+  width: 32px;
+  height: 32px;
+  min-width: 32px;
   padding: 0;
   font-size: 16px;
   font-weight: bold;
@@ -248,25 +422,33 @@ footer {
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all 0.3s ease;
+  transition: all var(--transition-speed) cubic-bezier(0.34, 1.56, 0.64, 1);
   margin-left: 12px;
   flex-shrink: 0;
-  box-shadow: 0 2px 4px rgba(255, 68, 68, 0.3);
+  box-shadow: var(--shadow-sm);
+  position: relative;
+  outline: 2px solid transparent;
+  outline-offset: 2px;
 }
 
 .delete-participant:hover {
-  background-color: #cc0000;
-  transform: scale(1.1);
-  box-shadow: 0 4px 8px rgba(255, 68, 68, 0.4);
+  transform: scale(1.15) rotate(10deg);
+  box-shadow: 0 6px 12px rgba(255, 68, 68, 0.4);
 }
 
 .delete-participant:active {
-  transform: scale(0.95);
+  transform: scale(0.9);
+  box-shadow: var(--shadow-sm);
+}
+
+.delete-participant:focus {
+  outline-color: var(--accent-color);
 }
 
 .participants-list li em {
-  color: #999;
+  color: var(--text-light);
   font-style: italic;
+  font-weight: 500;
 }
 
 
