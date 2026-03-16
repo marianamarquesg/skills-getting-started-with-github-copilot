@@ -53,7 +53,8 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  // Handle participant deletion
+  // Handle participant deletion - Remove participant info from activity
+  // This manages the deletion of participant info items
   activitiesList.addEventListener("click", async (event) => {
     if (event.target.classList.contains("delete-participant")) {
       const button = event.target;
@@ -73,7 +74,8 @@ document.addEventListener("DOMContentLoaded", () => {
         if (response.ok) {
           messageDiv.textContent = `${email} has been unregistered from ${activity}`;
           messageDiv.className = "success";
-          fetchActivities(); // Refresh the activities list
+          // Refresh the activities list to update participant info display
+          fetchActivities(); // Refresh to show updated participant info
         } else {
           messageDiv.textContent = result.detail || "Failed to unregister participant";
           messageDiv.className = "error";
@@ -113,7 +115,8 @@ document.addEventListener("DOMContentLoaded", () => {
         messageDiv.textContent = result.message;
         messageDiv.className = "success";
         signupForm.reset();
-        fetchActivities(); // Refresh the activities list
+        // Refresh the activities list to show updated participant info
+        fetchActivities(); // Refresh to display new participant info
       } else {
         messageDiv.textContent = result.detail || "An error occurred";
         messageDiv.className = "error";
