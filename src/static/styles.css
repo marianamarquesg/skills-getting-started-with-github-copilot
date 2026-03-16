@@ -181,6 +181,10 @@ footer {
   color: #333;
 }
 
+[data-participant-info] {
+  /* Participant info element styling */
+}
+
 .delete-participant {
   background-color: #ff4444;
   color: white;
