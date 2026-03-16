@@ -14,6 +14,9 @@ document.addEventListener("DOMContentLoaded", () => {
       // Clear loading message
       activitiesList.innerHTML = "";
 
+      // Clear and reset activity select dropdown to prevent duplicates
+      activitySelect.innerHTML = '<option value="">-- Select an activity --</option>';
+
       // Populate activities list with participant info
       Object.entries(activities).forEach(([name, details]) => {
         const activityCard = document.createElement("div");
